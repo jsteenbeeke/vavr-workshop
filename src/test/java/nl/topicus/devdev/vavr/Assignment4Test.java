@@ -33,7 +33,8 @@ public class Assignment4Test
 		}
 	}
 
-	@Test public void grade_assignment_4_1()
+	@Test
+	public void grade_assignment_4_1()
 	{
 		Person jan = new Person("Jan").withSalary(new BigDecimal(2500));
 		Person piet = new Person("Piet").withSalary(new BigDecimal(3000));
@@ -78,7 +79,7 @@ public class Assignment4Test
 		BigDecimal case0 = assignment4.calculateActualBalance(BigDecimal.TEN, List.empty());
 
 		assumeThat("An implementation exists", case0, notNullValue());
-		assertThat(case0, equalTo(BigDecimal.TEN));
+		assertThat(case0, equalTo(BigDecimal.TEN.setScale(2, RoundingMode.HALF_UP)));
 
 		BigDecimal case1 = assignment4.calculateActualBalance(BigDecimal.ZERO,
 				List.of(BigDecimal.TEN, new BigDecimal(-20), new BigDecimal(100),
@@ -99,7 +100,8 @@ public class Assignment4Test
 		assertThat(case0.size(), equalTo(1));
 
 		List<Tuple3<String, BigDecimal, BigDecimal>> case1 = assignment4.createBalanceList(
-				new Tuple3<>("Initial Balance", BigDecimal.ZERO, new BigDecimal(100)),
+				new Tuple3<>("Initial Balance", BigDecimal.ZERO.setScale(2, RoundingMode.HALF_UP),
+						new BigDecimal(100).setScale(2, RoundingMode.HALF_UP)),
 				List.of(new Tuple2<>("Entry fee", new BigDecimal(-5)),
 						new Tuple2<>("Taxes", new BigDecimal(-50)),
 						new Tuple2<>("Lunch", BigDecimal.TEN.negate()),
