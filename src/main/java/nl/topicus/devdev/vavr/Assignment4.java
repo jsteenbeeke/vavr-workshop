@@ -27,6 +27,8 @@ public class Assignment4
 	 * 4.2 - Calculate the average salary of the given persons, ensuring no person is counted twice
 	 * and that all salaries are weighted equally.
 	 *
+	 * Scale of resulting object (if any) should be 2
+	 *
 	 * For an additional challenge: do not convert the salaries to double
 	 */
 	@Nonnull
@@ -38,6 +40,8 @@ public class Assignment4
 	/**
 	 * 4.3 - Calculate the actual balance of a bank account. Ensure the scale of the resulting numbers
 	 * is equal to 2
+	 *
+	 * Scale of resulting object should be 2
 	 *
 	 * Tip: use a fold method
 	 */
@@ -53,6 +57,8 @@ public class Assignment4
 	 * 4.4 - Create a list of bank account balances, based on a list of mutations. The resulting list
 	 * should have elements of type Tuple3 containing the name of the mutation, the change in balance and the resulting balance. It
 	 * should also include the initial state
+	 *
+	 * Scale of any BigDecimals in resulting list should be 2
 	 *
 	 * Tip: use scanLeft.
 	 */
