@@ -1,6 +1,7 @@
 package nl.topicus.devdev.vavr;
 
 import io.vavr.Function0;
+import io.vavr.Lazy;
 import io.vavr.Value;
 import io.vavr.collection.Seq;
 import io.vavr.control.Either;
@@ -24,7 +25,7 @@ public class Assignment3
 	@Nonnull
 	public Option<Integer> createOption(@Nullable Integer value)
 	{
-		return null;
+		return Option.of(value);
 	}
 
 	/**
@@ -33,23 +34,23 @@ public class Assignment3
 	@Nonnull
 	public Try<Integer> tryIntegerDivision(int a, int b)
 	{
-		return null;
+		return Try.of(() -> a / b);
 	}
 
 	/**
 	 * 3.3 - Create an Either that represents the result of an unsafe division. An Either is a construct
 	 * that contains either a result value (by convention: the right value) or an error state (the left value).
-	 * <p>
+	 *
 	 * The goal of this assignment is to provide an {@code Either<String, Integer>} with the result of the division
 	 * as the right value, or the exception message as the left value.
-	 * <p>
+	 *
 	 * There are several ways to achieve this; pick whatever way you feel most comfortable with, but try
 	 * to prevent using branching statements.
 	 */
 	@Nonnull
 	public Either<String, Integer> eitherIntegerDivision(int a, int b)
 	{
-		return null;
+		return Try.of(() -> a / b).toEither().mapLeft(Throwable::getMessage);
 	}
 
 	/**
@@ -59,7 +60,8 @@ public class Assignment3
 	@Nonnull
 	public Try<Integer> recovery(@Nonnull Try<Integer> possiblyContainsErrors)
 	{
-		return null;
+		return possiblyContainsErrors.recover(IllegalStateException.class, e -> 0)
+				.recover(IllegalArgumentException.class, e -> 0);
 	}
 
 	/**
@@ -69,7 +71,7 @@ public class Assignment3
 	@Nonnull
 	public <T> Either<String, T> eitherize(@Nonnull Option<T> input)
 	{
-		return null;
+		return input.toEither(() -> "no value given");
 	}
 
 	/**
@@ -78,28 +80,31 @@ public class Assignment3
 	@Nonnull
 	public <T> Value<T> lazilyEvaluate(@Nonnull Function0<T> computation)
 	{
-		return null;
+		return Lazy.of(computation);
 	}
 
 	/**
 	 * 3.7 - Create a Validation that checks if a person has a non-empty name, and
 	 * a positive salary. The Validation can contain the following error messages:
-	 * <p>
+	 *
 	 * - Name may not be empty
 	 * - Salary must be positive
-	 * <p>
+	 *
 	 * Creating a validation has multiple steps. First you create a validation for each
 	 * input, then you combine these, and then ap(ply) them to a new Person object.
-	 * <p>
+	 *
 	 * Tip: validation isn't entirely intuitive. If you're unsure how to proceed, check the manual
 	 * on validation: https://www.vavr.io/vavr-docs/#_validation
-	 * <p>
+	 *
 	 * For an additional challenge: use Option instead of conditional expressions.
 	 */
 	@Nonnull
 	public Validation<Seq<String>, Person> validatePerson(@Nullable String name, @Nullable BigDecimal salary)
 	{
-		return null;
+		return Validation.combine(
+				Option.of(name).filter(n -> !n.isEmpty()).toValidation(() -> "Name may not be empty"),
+				Option.of(salary).filter(n -> n.compareTo(BigDecimal.ZERO) > 0).toValidation(() -> "Salary must be positive")
+		).ap((n,s) -> new Person(n).withSalary(s));
 	}
 
 }

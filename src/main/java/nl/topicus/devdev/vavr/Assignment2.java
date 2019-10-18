@@ -1,6 +1,8 @@
 package nl.topicus.devdev.vavr;
 
 import io.vavr.collection.HashMap;
+import io.vavr.collection.HashSet;
+import io.vavr.collection.LinkedHashMultimap;
 import io.vavr.collection.Map;
 import io.vavr.collection.Multimap;
 import io.vavr.collection.Set;
@@ -21,7 +23,7 @@ public class Assignment2
 	 */
 	@Nonnull
 	public Set<Integer> createSet(int... numbers) {
-		return null;
+		return HashSet.ofAll(numbers);
 	}
 
 	/**
@@ -29,7 +31,7 @@ public class Assignment2
 	 */
 	@Nonnull
 	public HashMap<String,Integer> createHashMap() {
-		return null;
+		return HashMap.empty();
 	}
 
 	/**
@@ -37,7 +39,7 @@ public class Assignment2
 	 */
 	@Nonnull
 	public Multimap<Integer,String> createMultiMapWithDuplicateValuesAllowed() {
-		return null;
+		return LinkedHashMultimap.withSeq().empty();
 	}
 
 	/**
@@ -45,7 +47,7 @@ public class Assignment2
 	 */
 	@Nonnull
 	public Multimap<Integer,String> createMultiMapWithDuplicateValuesNotAllowed() {
-		return null;
+		return LinkedHashMultimap.withSet().empty();
 	}
 
 	/**
@@ -53,7 +55,7 @@ public class Assignment2
 	 */
 	@Nonnull
 	public Map<Integer,String> removeOddKeys(@Nonnull Map<Integer,String> input) {
-		return null;
+		return input.filterKeys(i -> (i & 1) == 0);
 	}
 
 	/**
@@ -61,6 +63,6 @@ public class Assignment2
 	 */
 	@Nonnull
 	public Map<Integer,String> removeUppercaseValues(@Nonnull Map<Integer,String> input) {
-		return null;
+		return input.filterValues(s -> s.toLowerCase().equals(s));
 	}
 }

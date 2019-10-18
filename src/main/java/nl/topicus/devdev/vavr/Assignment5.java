@@ -18,7 +18,7 @@ public class Assignment5
 	 */
 	@Nonnull
 	public Function1<Integer,Integer> partialApplication(@Nonnull Integer value, @Nonnull Function2<Integer,Integer,Integer> function) {
-		return null;
+		return function.apply(value);
 	}
 
 	/**
@@ -28,7 +28,7 @@ public class Assignment5
 	 */
 	@Nonnull
 	public Function2<Integer, Integer, Option<Integer>> makeSafe(@Nonnull Function2<Integer,Integer,Integer> unsafeFunction) {
-		return null;
+		return Function2.lift(unsafeFunction);
 	}
 
 	/**
@@ -38,7 +38,7 @@ public class Assignment5
 	 */
 	@Nonnull
 	public Function4<Integer, Integer, Integer, Integer, Option<Integer>> makeSafe(@Nonnull Function4<Integer, Integer, Integer, Integer, Integer> unsafeFunction) {
-		return null;
+		return Function4.lift(unsafeFunction);
 	}
 
 	/**
@@ -49,7 +49,7 @@ public class Assignment5
 	public <T,U,V,W,X> Function1<T,Function1<U,Function1<V,Function1<W,X>>>> curryFunction(
 			@Nonnull Function4<T, U, V, W, X> inputFunction
 	) {
-		return null;
+		return inputFunction.curried();
 	}
 
 	/**
@@ -60,7 +60,7 @@ public class Assignment5
 	 */
 	@Nonnull
 	public <T,U,V> Function1<T,V> composition(@Nonnull Function1<T,U> first, @Nonnull Function1<U,V> second) {
-		return null;
+		return second.compose(first); // Alternatively: first.AndThen(second);
 	}
 
 	/**
@@ -70,6 +70,6 @@ public class Assignment5
 	@Nonnull
 	public CheckedFunction1<Integer,Integer> cacheRepeatInvocations(@Nonnull
 			CheckedFunction1<Integer,Integer> function) {
-		return null;
+		return function.memoized();
 	}
 }

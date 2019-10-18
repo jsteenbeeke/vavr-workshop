@@ -22,7 +22,7 @@ public class Assignment1
 	@Nonnull
 	public Array<String> createEmptyArray()
 	{
-		return null;
+		return Array.empty();
 	}
 
 	/**
@@ -31,7 +31,7 @@ public class Assignment1
 	@Nonnull
 	public Array<String> addElement(@Nonnull Array<String> original)
 	{
-		return null;
+		return original.append("vavr");
 	}
 
 	/**
@@ -40,29 +40,29 @@ public class Assignment1
 	@Nonnull
 	public List<String> createList(@Nonnull String... elements)
 	{
-		return null;
+		return List.of(elements);
 	}
 
 	/**
 	 * 1.4 - Transform a list of String to a list of lengths
-	 * <p>
+	 *
 	 * i.e. - If an element is "vavr" then the output should be 4
 	 */
 	@Nonnull
 	public List<Integer> mapToLength(@Nonnull List<String> input)
 	{
-		return null;
+		return input.map(String::length);
 	}
 
 	/**
 	 * 1.5 - Transform a list of String to a list of lengths, but only if this yields an even number
-	 * <p>
+	 *
 	 * i.e. - If an element is "vavr" then the output should be 4
 	 */
 	@Nonnull
 	public List<Integer> mapToLengthAndDiscardOddNumbers(@Nonnull List<String> input)
 	{
-		return null;
+		return input.map(String::length).filter(i -> (i & 1) != 1);
 	}
 
 	/**
@@ -71,7 +71,7 @@ public class Assignment1
 	@Nonnull
 	public List<Address> personToAdddresses(@Nonnull List<Person> persons)
 	{
-		return null;
+		return persons.flatMap(Person::getAddresses);
 	}
 
 	/**
@@ -81,7 +81,7 @@ public class Assignment1
 	@Nonnull
 	public List<Address> personToOddAdddresses(@Nonnull List<Person> persons)
 	{
-		return null;
+		return persons.flatMap(Person::getAddresses).filter(a -> (a.getHouseNumber() & 1) == 1);
 	}
 
 	/**
@@ -90,7 +90,7 @@ public class Assignment1
 	@Nonnull
 	public Stream<Long> createPositiveOddNumbers()
 	{
-		return null;
+		return Stream.iterate(1L, i -> i + 2).takeUntil(l -> l >= 1000);
 	}
 
 	/**
@@ -100,7 +100,7 @@ public class Assignment1
 	@Nonnull
 	public java.util.List<Long> convertToJava(@Nonnull Array<Long> array)
 	{
-		return null;
+		return array.toJavaList(); // Or: array.asJavaMutable()
 	}
 
 	/**
@@ -110,7 +110,7 @@ public class Assignment1
 	@Nonnull
 	public java.util.List<Long> convertToImmutableJava(@Nonnull Array<Long> array)
 	{
-		return null;
+		return array.asJava();
 	}
 
 }
