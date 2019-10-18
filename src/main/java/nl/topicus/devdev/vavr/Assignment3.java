@@ -39,10 +39,10 @@ public class Assignment3
 	/**
 	 * 3.3 - Create an Either that represents the result of an unsafe division. An Either is a construct
 	 * that contains either a result value (by convention: the right value) or an error state (the left value).
-	 * <p>
+	 *
 	 * The goal of this assignment is to provide an {@code Either<String, Integer>} with the result of the division
 	 * as the right value, or the exception message as the left value.
-	 * <p>
+	 *
 	 * There are several ways to achieve this; pick whatever way you feel most comfortable with, but try
 	 * to prevent using branching statements.
 	 */
@@ -84,16 +84,16 @@ public class Assignment3
 	/**
 	 * 3.7 - Create a Validation that checks if a person has a non-empty name, and
 	 * a positive salary. The Validation can contain the following error messages:
-	 * <p>
+	 *
 	 * - Name may not be empty
 	 * - Salary must be positive
-	 * <p>
+	 *
 	 * Creating a validation has multiple steps. First you create a validation for each
 	 * input, then you combine these, and then ap(ply) them to a new Person object.
-	 * <p>
+	 *
 	 * Tip: validation isn't entirely intuitive. If you're unsure how to proceed, check the manual
 	 * on validation: https://www.vavr.io/vavr-docs/#_validation
-	 * <p>
+	 *
 	 * For an additional challenge: use Option instead of conditional expressions.
 	 */
 	@Nonnull

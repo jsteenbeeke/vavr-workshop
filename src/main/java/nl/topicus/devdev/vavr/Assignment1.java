@@ -45,7 +45,7 @@ public class Assignment1
 
 	/**
 	 * 1.4 - Transform a list of String to a list of lengths
-	 * <p>
+	 *
 	 * i.e. - If an element is "vavr" then the output should be 4
 	 */
 	@Nonnull
@@ -56,7 +56,7 @@ public class Assignment1
 
 	/**
 	 * 1.5 - Transform a list of String to a list of lengths, but only if this yields an even number
-	 * <p>
+	 *
 	 * i.e. - If an element is "vavr" then the output should be 4
 	 */
 	@Nonnull
