@@ -48,7 +48,7 @@ public class Assignment1Test
 		assumeThat("An implementation exists", assignment1.addElement(original), notNullValue());
 
 		assertThat(assignment1.addElement(original).reverse(),
-				equalTo(Array.of("vavr", "is", "awesome")));
+				equalTo(Array.of("vavr", "is", "awesome!")));
 	}
 
 	@Test
