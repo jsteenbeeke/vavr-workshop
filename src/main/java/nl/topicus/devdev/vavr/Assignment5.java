@@ -88,6 +88,11 @@ public class Assignment5
 	public Tuple2<Function1<String, Function1<String, Function1<LocalDateTime, Function1<String, LogLine>>>>, Function1<LocalDateTime, Function1<String, LogLine>>> partiallyAppliedConstructor(
 			@Nonnull String system, @Nonnull String user)
 	{
-		return null;
+		Function4<String,String,LocalDateTime,String,LogLine> ctor = LogLine::new;
+
+		Function1<String, Function1<String, Function1<LocalDateTime, Function1<String, LogLine>>>>
+				curried = ctor.curried();
+
+		return new Tuple2<>(curried, curried.apply(system).apply(user));
 	}
 }
