@@ -4,9 +4,12 @@ import io.vavr.CheckedFunction1;
 import io.vavr.Function1;
 import io.vavr.Function2;
 import io.vavr.Function4;
+import io.vavr.Tuple2;
 import io.vavr.control.Option;
+import nl.topicus.devdev.vavr.model.LogLine;
 
 import javax.annotation.Nonnull;
+import java.time.LocalDateTime;
 
 /**
  * Assignment 5 - Fun with functions
@@ -71,5 +74,20 @@ public class Assignment5
 	public CheckedFunction1<Integer,Integer> cacheRepeatInvocations(@Nonnull
 			CheckedFunction1<Integer,Integer> function) {
 		return function.memoized();
+	}
+
+	/**
+	 * Assignment 5.6 - Currying in action
+	 * 
+	 * Assign the constructor of the class LogLine to a Function4, curry the function, and
+	 * apply the 2 given parameters to this function.
+	 * 
+	 * Return both the curried function, and the partially applied function
+	 */
+	@Nonnull
+	public Tuple2<Function1<String, Function1<String, Function1<LocalDateTime, Function1<String, LogLine>>>>, Function1<LocalDateTime, Function1<String, LogLine>>> partiallyAppliedConstructor(
+			@Nonnull String system, @Nonnull String user)
+	{
+		return null;
 	}
 }
