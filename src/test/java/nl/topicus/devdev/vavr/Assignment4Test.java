@@ -137,7 +137,10 @@ public class Assignment4Test
 		List<BigDecimal> bdCase1 = List.of(4, 5, 6).map(BigDecimal::new);
 		List<BigDecimal> bdCase2 = List.of();
 
-		assertThat(assignment4.combineLists(stringCase0, bdCase0), equalTo(List.of()));
+		List<Tuple2<String, BigDecimal>> actual = assignment4.combineLists(stringCase0, bdCase0);
+
+		assumeThat(actual, notNullValue());
+		assertThat(actual, equalTo(List.of()));
 		assertThat(assignment4.combineLists(stringCase1, bdCase0), equalTo(
 				List.of(
 						new Tuple2<>("A", 1).map2(BigDecimal::new),
