@@ -73,7 +73,7 @@ public class Assignment5Test
 
 		assertThat(safeMath.apply(1, 4, 2, 4), isSome(-1));
 		assertThat(safeMath.apply(1, 4, 0, 4), isNone());
-		assertThat(safeMath.apply(1, 1, 1, 1), isSome(0));
+		assertThat(safeMath.apply(1, 1, 1, 1), isSome(1));
 
 	}
 

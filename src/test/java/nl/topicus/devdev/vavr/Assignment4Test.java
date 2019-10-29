@@ -68,7 +68,7 @@ public class Assignment4Test
 		assertThat(assignment4.averageSalary(List.of(jan, piet, klaas))
 						.map(b -> b.setScale(2, RoundingMode.HALF_UP)),
 				isSome(new BigDecimal(3333.33).setScale(2, RoundingMode.HALF_UP)));
-		assertThat(assignment4.averageSalary(List.of(jan, piet, klaas, piet, piet))
+		assertThat(assignment4.averageSalary(List.of(jan, jan, jan, jan, jan, piet, klaas, piet))
 						.map(b -> b.setScale(2, RoundingMode.HALF_UP)),
 				isSome(new BigDecimal(3333.33).setScale(2, RoundingMode.HALF_UP)));
 	}

@@ -40,7 +40,8 @@ public class VavrMatchers
 	{
 		return new TypeSafeDiagnosingMatcher<Option<T>>()
 		{
-			@Override protected boolean matchesSafely(Option<T> item, Description mismatchDescription)
+			@Override
+			protected boolean matchesSafely(Option<T> item, Description mismatchDescription)
 			{
 				if (item.isEmpty())
 				{
@@ -51,6 +52,7 @@ public class VavrMatchers
 				} else if (!Objects.equals(item.get(), value)) {
 					mismatchDescription.appendText("is an option containing ")
 							.appendValue(item.get());
+					return false;
 				}
 
 				return true;
