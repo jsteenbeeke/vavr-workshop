@@ -126,4 +126,51 @@ public class Assignment4Test
 				new BigDecimal(45).setScale(2, RoundingMode.HALF_UP))));
 
 	}
+
+	@Test
+	public void grade_assignment_4_5() {
+		List<String> stringCase0 = List.of();
+		List<String> stringCase1 = List.of("A", "B", "C");
+		List<String> stringCase2 = List.of("A", "B", "C", "D");
+
+		List<BigDecimal> bdCase0 = List.of(1, 2, 3).map(BigDecimal::new);
+		List<BigDecimal> bdCase1 = List.of(4, 5, 6).map(BigDecimal::new);
+		List<BigDecimal> bdCase2 = List.of();
+
+		assertThat(assignment4.combineLists(stringCase0, bdCase0), equalTo(List.of()));
+		assertThat(assignment4.combineLists(stringCase1, bdCase0), equalTo(
+				List.of(
+						new Tuple2<>("A", 1).map2(BigDecimal::new),
+						new Tuple2<>("B", 2).map2(BigDecimal::new),
+						new Tuple2<>("C", 3).map2(BigDecimal::new)
+				)
+		));
+
+		assertThat(assignment4.combineLists(stringCase1, bdCase1), equalTo(
+				List.of(
+						new Tuple2<>("A", 4).map2(BigDecimal::new),
+						new Tuple2<>("B", 5).map2(BigDecimal::new),
+						new Tuple2<>("C", 6).map2(BigDecimal::new)
+				)
+		));
+
+		assertThat(assignment4.combineLists(stringCase2, bdCase0), equalTo(
+				List.of(
+						new Tuple2<>("A", 1).map2(BigDecimal::new),
+						new Tuple2<>("B", 2).map2(BigDecimal::new),
+						new Tuple2<>("C", 3).map2(BigDecimal::new)
+				)
+		));
+
+		assertThat(assignment4.combineLists(stringCase2, bdCase1), equalTo(
+				List.of(
+						new Tuple2<>("A", 4).map2(BigDecimal::new),
+						new Tuple2<>("B", 5).map2(BigDecimal::new),
+						new Tuple2<>("C", 6).map2(BigDecimal::new)
+				)
+		));
+
+		assertThat(assignment4.combineLists(stringCase2, bdCase2), equalTo(List.of()));
+
+	}
 }
