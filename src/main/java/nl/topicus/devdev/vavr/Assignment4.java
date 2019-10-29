@@ -32,7 +32,8 @@ public class Assignment4
 	 *
 	 * Scale of resulting object (if any) should be 2
 	 */
-	@Nonnull public Option<BigDecimal> averageSalary(@Nonnull List<Person> persons)
+	@Nonnull
+	public Option<BigDecimal> averageSalary(@Nonnull List<Person> persons)
 	{
 		// ## EASY BUT POSSIBLE IMPRECISE WAY
 		//		return persons.map(Person::getSalary).map(BigDecimal::doubleValue).average().map(
@@ -53,7 +54,8 @@ public class Assignment4
 	 *
 	 * Tip: use a fold method
 	 */
-	@Nonnull public BigDecimal calculateActualBalance(@Nonnull BigDecimal initialState,
+	@Nonnull
+	public BigDecimal calculateActualBalance(@Nonnull BigDecimal initialState,
 			@Nonnull List<BigDecimal> mutations)
 	{
 		return mutations.fold(initialState, BigDecimal::add).setScale(2, RoundingMode.HALF_UP);
@@ -68,7 +70,8 @@ public class Assignment4
 	 *
 	 * Tip: use scanLeft.
 	 */
-	@Nonnull public List<Tuple3<String, BigDecimal, BigDecimal>> createBalanceList(
+	@Nonnull
+	public List<Tuple3<String, BigDecimal, BigDecimal>> createBalanceList(
 			@Nonnull Tuple3<String, BigDecimal, BigDecimal> initialState,
 			@Nonnull List<Tuple2<String, BigDecimal>> mutations)
 	{
@@ -84,6 +87,6 @@ public class Assignment4
 	@Nonnull public List<Tuple2<String, BigDecimal>> combineLists(@Nonnull List<String> first,
 			@Nonnull List<BigDecimal> second)
 	{
-		return null;
+		return first.zip(second);
 	}
 }
