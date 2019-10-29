@@ -49,7 +49,8 @@ public class Person
 		return salary;
 	}
 
-	@Override public boolean equals(Object o)
+	@Override
+	public boolean equals(Object o)
 	{
 		if (this == o)
 			return true;
@@ -60,7 +61,8 @@ public class Person
 				salary.equals(person.salary);
 	}
 
-	@Override public int hashCode()
+	@Override
+	public int hashCode()
 	{
 		return Objects.hash(name, addresses, salary);
 	}

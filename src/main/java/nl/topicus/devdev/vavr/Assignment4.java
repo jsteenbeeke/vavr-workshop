@@ -40,10 +40,10 @@ public class Assignment4
 		//				BigDecimal::new);
 
 		// ## HARD WAY
-		return persons.map(Person::getSalary)
+		return persons.toSet().map(Person::getSalary)
 				.zip(Stream.continually(BigDecimal.ONE))
 				.reduceOption((a, b) -> a.map1(b._1::add).map2(b._2::add))
-				.map(t -> t._2().divide(t._1(), 2, RoundingMode.HALF_UP));
+				.map(t -> t._1().divide(t._2(), 2, RoundingMode.HALF_UP));
 	}
 
 	/**
